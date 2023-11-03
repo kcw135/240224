@@ -1,10 +1,10 @@
 <html>
 <head>
-<title>카카오톡 버튼있는 메시지 전송하기</title>
+<title>카카오톡 버튼 메시지 전송</title>
 <script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. Blackcats4567</p>
+<p><strong>아래 카카오톡 아이콘을 눌러 전송하세요</strong> By. 240224</p>
 <a id="kakao-link-btn" href="javascript:sendLink()">
   <img
     src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
@@ -16,10 +16,10 @@
     Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
-        title: '제목240224 방문하기',
-        description: '2024년 02월 24일 오후 01시 30분',
+        title: '김창원 ♥ 노영지',
+        description: '2024년 02월 24일 오후 01시 30분\n드메르웨딩홀 1층 르씨엘홀',
         imageUrl:
-          'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA2MTdfMTk0%2FMDAxNTI5MjQzNzI5MDI2.DcBvs0rKLwWYqmNVvsZJPRHXXaFS3ha6dpO4qL7YJAcg.7LhlAc5WVHBSxH64rHQDFoHOhTw_JEgF5Rxkt22C25gg.JPEG.kimsreal%2Fscreenshot_5.jpg&type=a340',
+          'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MzBfOTUg%2FMDAxNjYxODY3OTY2MTQz.MGXXl5xYcRwnNeFxcYRWgANnNMoUDbb0ShReU1DuQ6cg.0FpWu21NW08q3xxjMEVjcNqXc916eBtWi3pw_4d4Adkg.JPEG.borori34%2FIMG_8662.jpg&type=a340',
         link: {
           mobileWebUrl: 'https://directwedcard.com/240224',
           webUrl: 'https://directwedcard.com/240224',
@@ -33,6 +33,13 @@
       buttons: [
         {
           title: '청첩장 보기',
+          link: {
+            mobileWebUrl: 'https://directwedcard.com/240224',
+            webUrl: 'https://directwedcard.com/240224',
+          },
+        },
+        {
+          title: '청첩장 보기2',
           link: {
             mobileWebUrl: 'https://directwedcard.com/240224',
             webUrl: 'https://directwedcard.com/240224',
