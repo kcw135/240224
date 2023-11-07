@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pnx2jw93fg"></script>
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+		
+		<style>
+			@font-face {
+				font-family: 'GowunDodum-Regular';
+				src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
+			:root {
+			
+				--font-family: GowunDodum-Regular;
+								
+				--point-color1: #BB7273;
+				
+				--font-xxlarge: 3rem;
+				--font-xlarge: 1.7rem;
+				--font-large: 1.5rem;
+				--font-regular: 1.2rem;
+				--font-medium: 1rem;
+				--font-medium-s: 0.9rem;
+				--font-small: .8rem;
+				--font-xsmall: .7rem;
+				--font-answer: 0.95rem;
+			}
+			
+			html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+			
+				font-family: var(--font-family);
+				text-align: center;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				color: #333;
+				text-decoration: none; 
+			}
+			
+			.top_box {
+				margin-top: 40px;
+			}
+			
+			.title {
+				margin-bottom: 50px;
+				font-weight: 700;
+			}
+			
+			.title h2 {
+				font-size: var(--font-large);
+				font-weight: 700;
+				color: var(--point-color1);
+			}
+			
+			.locate_name {
+				font-size: var(--font-regular);
+				font-weight: 400;
+				color: #333;
+			}
+
+			.phone {
+				text-decoration: none; 
+				font-size: var(--font-medium);
+				color: #333;
+			}
+			
+			.locate_hall {
+				margin: 12px 0;
+				font-size: var(--font-medium);
+				font-weight: 400;
+			}
+			
+			.locate_address {
+				font-size: var(--font-medium);
+				font-weight: 400;
+			}
+			
+			.map_box {
+				margin-top: 30px;
+			}
+			
+			.more_view {	
+				display: flex;
+				margin-top: 30px;
+				align-items: center;
+				justify-content: center;
+			}					
+						
+			.button {	
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid #7e7e7e;	
+				border-radius: 4px;
+				width: 100px;
+				height: 43px;
+			}
+			
+			
+<!-- 			.ui-link {
+				display: inline-block;
+				background-color: #f44336;
+				width: 100px;
+				height: 100px;
+			}
+			
+			.more_view1 a {
+				display: inline-block;
+				padding: 0px 0px;
+				margin: 0px 0;
+			} -->
+		</style>
+		<!-- <link rel="stylesheet" href="styles/main.css"> -->
+	</head>
+	<body>
+		<section class="top_box">
+			<div class="title"><h2>오시는길</h2></div>
+
+			<div class="locate_name">드메르웨딩홀 <a href="tel:0622280000" class="phone xi-call"></a></div>
+			<div class="locate_hall">1층 / 르씨엘홀</div>
+			<div class="locate_address">광주 광산구 임방울대로 565</div>
+			<div class="locate_address">(광주 광산구 도천동 147-22)</div>
+		</section>
+		
+		<section class="map_box">
+			<div id="map" style="margin:0 auto;width:410px; height:300px;"></div>
+				<script>
+					var HOME_PATH = window.HOME_PATH || '.';
+					var cityhall = new naver.maps.LatLng(35.207933, 126.821623),
+						map = new naver.maps.Map('map', {
+							center: cityhall.destinationPoint(0, 200),
+							zoom: 16
+						}),
+						marker = new naver.maps.Marker({
+							map: map,
+							position: cityhall
+						});
+
+					var contentString = [
+							'<div class="iw_inner" style="padding:0px 15px 0px 15px;">',
+							'   <h4>드메르웨딩홀</h4>',
+							'   <p>1층 르씨엘홀<br />',
+//							'   2024-02-24(금) 13:30 <br />',
+							'</div>'
+										
+						].join('');
+
+					var infowindow = new naver.maps.InfoWindow({
+						content: contentString
+					});
+
+					naver.maps.Event.addListener(marker, "click", function(e) {
+						if (infowindow.getMap()) {
+							infowindow.close();
+						} else {
+							infowindow.open(map, marker);
+						}
+					});
+
+					infowindow.open(map, marker);
+			</script>
+			
+			<div class="more_view">
+				<a href="https://apis.openapi.sk.com/tmap/app/routes?appKey=0jHii10YHo7TsAKVmODCs2c9tTvHJopo3lPNCwZV&name=드메르웨딩홀&lon=126.821623&lat=35.207933"><span class="button">티맵</span></a>
+				<a href="https://m.place.naver.com/place/580623277/home"><span class="button">네이버지도</span></a>
+				<a href="https://naver.me/5JJQmEj0"><span class="button">네이버지도</span></a>
+                <a href="https://place.map.kakao.com/m/60505718"><span class="button">카카오맵</span></a>
+				<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87"><span class="button">구글</span></a>
+			</div>
+			
+<!-- 			<div class="more_view1">
+				<a href="https://deardeer.kr/m/MOBILE-0217#none">
+					<img id="img_tmap_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_d4d680f97d25997d3673.jpg">
+                </a>
+				<a href="https://deardeer.kr/m/MOBILE-0217#none">
+					<img id="img_kakaonavi_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg">
+                </a>
+				<a href="https://deardeer.kr/m/MOBILE-0217#none">
+					<img id="img_naver_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_7555c7b809b8b689a090.jpg">
+                </a>
+				<a href="https://deardeer.kr/m/MOBILE-0217#none">
+					<img id="img_daum_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg">
+                </a>
+            </div> -->
+		
+		</section>
+	</body>
+</html>
