@@ -131,23 +131,12 @@
 				width: 80px;
 				height: 43px;
 			}
-			
-
-			.quick_btn {
-				position: fixed;
-				bottom: 0;
-				margin: 0 auto;
-				max-width: 420px;
-				width: 100%;
-				pointer-events: none;
-			}
-			
-			
+								
 			.share {
-				position: absolute;
-				bottom: 20px;
-				right: 20px;
-				display: none;
+				position: fixed;
+				display: inline-block;
+				top: 20px;
+				right: 21px;
 				padding: 10px;
 				font-size: var(--font-large);
 				background: rgba(153, 153, 153, 0.25);
@@ -157,11 +146,11 @@
 				pointer-events: all;
 			}
 			
-			.arrow_up {
-				position: absolute;
-				bottom: 80px;
-				right: 20px;
-				display: none;
+			.arrow_mail {
+				position: fixed;
+				display: inline-block;
+				top: 20px;
+				left: 21px;
 				padding: 10px;
 				font-size: var(--font-large);
 				background: rgba(153, 153, 153, 0.25);
@@ -170,7 +159,29 @@
 				border: none;
 				pointer-events: all;
 			}
+								
+			.share_str {
+				position: fixed;
+				top: 65px;
+				right: 20px;
+				display: inline-block;
+				font-size: var(--font-small);
+				border: none;
+				pointer-events: all;
+				
+			}
 			
+			.arrow_mail_str {
+				position: fixed;
+				top: 65px;
+				left: 20px;
+				display: inline-block;
+				font-size: var(--font-small);
+				border: none;
+				pointer-events: all;
+				
+			}
+				
  			.ui-link {
 				display: inline-block;
 				background-color: #f44336;
@@ -272,16 +283,16 @@
 					
 					<div class="more_view1">
 						<a href="https://deardeer.kr/m/MOBILE-0217#none">
-							<img id="img_tmap_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_d4d680f97d25997d3673.jpg" width="80px">
+							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_d4d680f97d25997d3673.jpg" width="80px">
 						</a>
 						<a href="https://deardeer.kr/m/MOBILE-0217#none">
-							<img id="img_kakaonavi_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg" width="80px">
+							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg" width="80px">
 						</a>
 						<a href="https://deardeer.kr/m/MOBILE-0217#none">
-							<img id="img_naver_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_7555c7b809b8b689a090.jpg" width="80px">
+							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_7555c7b809b8b689a090.jpg" width="80px">
 						</a>
 						<a href="https://deardeer.kr/m/MOBILE-0217#none">
-							<img id="img_daum_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg" width="80px">
+							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg" width="80px">
 						</a>
 					</div> 
 			
@@ -328,9 +339,17 @@
 				<!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
 			
 				<!-- 네비게이션-공유하기, 맨위로 부분 -->
-				<div class="quick_btn preview_resize" id="quick_btn">
-						<a id="kakao-link-btn" href="javascript:sendLink()"><button class="xi-share-alt share" style="display: inline-block;"></button></a>
-						<a href="#top_box"><button class="xi-angle-up arrow_up" style="display: inline-block;"></button></a>
+				<div class="quick_btn" id="quick_btn">
+						<a id="kakao-link-btn" href="javascript:sendLink()">
+							<button class="xi-share-alt share"></button>
+							<p class="share_str">카카오톡<br>공유하기</button>
+						</a>
+						
+						<a href="https://salondeletter.com/w/um5wof476m">
+							<button class="xi-paper-o arrow_mail"></button>
+							<p class="arrow_mail_str">청첩장<br>보러가기</button>
+						</a>
+
 				</div>
 			
 			</section>
