@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	
-		<title>카카오톡 버튼 메시지 전송</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, viewport-fit=cover, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://salondeletter.com/w/um5wof476m">
+		<meta property="og:title" content="김창원♥노영지 결혼식에 초대합니다.">
+		<meta property="og:image" content="https://file.salondeletter.com/202311/04/4977/cf305fb0.jpg">
+		<meta property="og:description" content="2월 24일 (토) 오후 1시 30분
+	드메르웨딩홀 / 1층 르씨엘홀">
+		<meta property="og:site_name" content="김창원♥노영지 결혼식에 초대합니다.">
+		<meta property="og:locale" content="ko_KR">
+
+		<title>김창원♥노영지 결혼식에 초대합니다.</title>
 		
 		<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pnx2jw93fg"></script>
 		
@@ -30,7 +42,7 @@
 				--font-small: .8rem;
 				--font-xsmall: .7rem;
 				--font-answer: 0.95rem;
-				
+				--background: #FFFFFF;
 				--swiper-navigation-size: 44px;
 			}
 			
@@ -44,7 +56,16 @@
 				color: #333;
 				text-decoration: none; 
 			}
-						
+				
+			.layout {
+				position: relative;
+				width: 100%;
+				max-width: 420px;
+				margin: 0 auto;
+				overflow: hidden;
+				background: var(--background);
+			}
+				
 			.top_box {
 				margin-top: 40px;
 			}
@@ -108,7 +129,7 @@
 				position: fixed;
 				bottom: 0;
 				margin: 0 auto;
-		//		max-width: 420px;
+				max-width: 420px;
 				width: 100%;
 				pointer-events: none;
 			}
@@ -157,129 +178,152 @@
 		</style>
 		
 		<!-- <link rel="stylesheet" href="styles/main.css"> -->
-		
+				
+		<!-- 소스보기 금지 -->
+		<script>
+			document.oncontextmenu = function (e) {
+				return false;
+			}
+
+			window.addEventListener("keydown", (e) => {
+				if( e.keyCode === 123) {
+					e.preventDefault();
+					e.returnValue = false;
+					return false;
+				}
+				if( e.ctrlKey && e.shiftKey && (e.keycode == 73)) {
+					e.preventDefault();
+					e.returnValue = false;
+					return false;
+				}
+			});
+		</script>
+
+		<!-- 카카오공유기능 -->
 		<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 		
 	</head>
 	<body>
-		<section class="top_box" id="top_box">
-			<div class="title"><h2>오시는길</h2></div>
+		<div class="layout   " effect="EF001" mainonly="true" sample="false" scroll="true">
+			<section class="top_box" id="top_box">
+				<div class="title"><h2>오시는길</h2></div>
 
-			<div class="locate_name">드메르웨딩홀 <a href="tel:0622280000" class="phone xi-call"></a></div>
-			<div class="locate_hall">1층 / 르씨엘홀</div>
-			<div class="locate_address">광주 광산구 임방울대로 565</div>
-			<div class="locate_address">(광주 광산구 도천동 147-22)</div>
+				<div class="locate_name">드메르웨딩홀 <a href="tel:0622280000" class="phone xi-call"></a></div>
+				<div class="locate_hall">1층 / 르씨엘홀</div>
+				<div class="locate_address">광주 광산구 임방울대로 565</div>
+				<div class="locate_address">(광주 광산구 도천동 147-22)</div>
 
-		</section>
-		
-		<section class="map_box">
-			<div id="map" style="margin:0 auto;width:410px; height:300px;"></div>
-			<script>
-				var HOME_PATH = window.HOME_PATH || '.';
-				var cityhall = new naver.maps.LatLng(35.207933, 126.821623),
-					map = new naver.maps.Map('map', {
-						center: cityhall.destinationPoint(0, 200),
-						zoom: 16
-					}),
-					marker = new naver.maps.Marker({
-						map: map,
-						position: cityhall
+			</section>
+			
+			<section class="map_box">
+				<div id="map" style="margin:0 auto;width:100%; height:300px;"></div>
+				<script>
+					var HOME_PATH = window.HOME_PATH || '.';
+					var cityhall = new naver.maps.LatLng(35.207933, 126.821623),
+						map = new naver.maps.Map('map', {
+							center: cityhall.destinationPoint(0, 200),
+							zoom: 16
+						}),
+						marker = new naver.maps.Marker({
+							map: map,
+							position: cityhall
+						});
+
+					var contentString = [
+							'<div class="iw_inner" style="padding:0px 15px 0px 15px;">',
+							'   <h4>드메르웨딩홀</h4>',
+							'   <p>1층 르씨엘홀<br />',
+	//						'   2024-02-24(금) 13:30 <br />',
+							'</div>'
+										
+						].join('');
+
+					var infowindow = new naver.maps.InfoWindow({
+						content: contentString
 					});
 
-				var contentString = [
-						'<div class="iw_inner" style="padding:0px 15px 0px 15px;">',
-						'   <h4>드메르웨딩홀</h4>',
-						'   <p>1층 르씨엘홀<br />',
-//						'   2024-02-24(금) 13:30 <br />',
-						'</div>'
-									
-					].join('');
+					naver.maps.Event.addListener(marker, "click", function(e) {
+						if (infowindow.getMap()) {
+							infowindow.close();
+						} else {
+							infowindow.open(map, marker);
+						}
+					});
 
-				var infowindow = new naver.maps.InfoWindow({
-					content: contentString
-				});
-
-				naver.maps.Event.addListener(marker, "click", function(e) {
-					if (infowindow.getMap()) {
-						infowindow.close();
-					} else {
-						infowindow.open(map, marker);
-					}
-				});
-
-				infowindow.open(map, marker);
-			</script>
-			
-			<div class="more_view">
-				<a href="https://apis.openapi.sk.com/tmap/app/routes?appKey=0jHii10YHo7TsAKVmODCs2c9tTvHJopo3lPNCwZV&name=드메르웨딩홀&lon=126.821623&lat=35.207933"><span class="button">티맵</span></a>
-				<a href="https://m.place.naver.com/place/580623277/home"><span class="button">네이버지도</span></a>
-				<a href="https://place.map.kakao.com/m/60505718"><span class="button">카카오맵</span></a>
-				<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87"><span class="button">구글</span></a>
-			</div>
+					infowindow.open(map, marker);
+				</script>
 				
-	<!-- 			<div class="more_view1">
-					<a href="https://deardeer.kr/m/MOBILE-0217#none">
-						<img id="img_tmap_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_d4d680f97d25997d3673.jpg">
-					</a>
-					<a href="https://deardeer.kr/m/MOBILE-0217#none">
-						<img id="img_kakaonavi_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg">
-					</a>
-					<a href="https://deardeer.kr/m/MOBILE-0217#none">
-						<img id="img_naver_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_7555c7b809b8b689a090.jpg">
-					</a>
-					<a href="https://deardeer.kr/m/MOBILE-0217#none">
-						<img id="img_daum_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg">
-					</a>
-				</div> -->
-		
-		</section>
-		
+				<div class="more_view">
+					<a href="https://apis.openapi.sk.com/tmap/app/routes?appKey=0jHii10YHo7TsAKVmODCs2c9tTvHJopo3lPNCwZV&name=드메르웨딩홀&lon=126.821623&lat=35.207933"><span class="button">티맵</span></a>
+					<a href="https://m.place.naver.com/place/580623277/home"><span class="button">네이버지도</span></a>
+					<a href="https://place.map.kakao.com/m/60505718"><span class="button">카카오맵</span></a>
+					<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87"><span class="button">구글</span></a>
+				</div>
+					
+		<!-- 			<div class="more_view1">
+						<a href="https://deardeer.kr/m/MOBILE-0217#none">
+							<img id="img_tmap_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_d4d680f97d25997d3673.jpg">
+						</a>
+						<a href="https://deardeer.kr/m/MOBILE-0217#none">
+							<img id="img_kakaonavi_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg">
+						</a>
+						<a href="https://deardeer.kr/m/MOBILE-0217#none">
+							<img id="img_naver_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_7555c7b809b8b689a090.jpg">
+						</a>
+						<a href="https://deardeer.kr/m/MOBILE-0217#none">
+							<img id="img_daum_prev_img" class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg">
+						</a>
+					</div> -->
+			
+			</section>
+			
 
-		
-		<!-- 네비게이션-공유하기, 맨위로 부분 -->
-		<section class="bottom_box">
-			<script type="text/javascript">
-			 Kakao.init('b59f3bc702a4a8943170ad729a2e3507');
-			  function sendLink() {
-				Kakao.Link.sendDefault({
-				  objectType: 'feed',
-				  content: {
-					title: '김창원♥노영지 결혼식에 초대합니다.',
-					description: '2월 24일 (토) 오후 1시 30분\n드메르웨딩홀 / 1층 르씨엘홀',
-					imageUrl:
-					  'https://file.salondeletter.com/202311/04/4977/e3d48691.jpg',
-					link: {
-					  mobileWebUrl: 'https://salondeletter.com/w/um5wof476m',
-					  webUrl: 'https://salondeletter.com/w/um5wof476m',
-					},
-				  },
-				  buttons: [
-					{
-					  title: '청첩장 보기',
-					  link: {
-						mobileWebUrl: 'https://salondeletter.com/w/um5wof476m',
-						webUrl: 'https://salondeletter.com/w/um5wof476m',
-					  },
-					},
-					{
-					  title: '위치 보기',
-					  link: {
-						mobileWebUrl: 'https://kcw135.github.io/240224/',
-						webUrl: 'https://kcw135.github.io/240224/',
-					  },
-					},
-				  ],
-				})
-			  }
-			</script>
-			<!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
-		
+			
 			<!-- 네비게이션-공유하기, 맨위로 부분 -->
-			<div class="quick_btn preview_resize" id="quick_btn">
-					<a id="kakao-link-btn" href="javascript:sendLink()"><button class="xi-share-alt share" style="display: inline-block;"></button></a>
-					<a href="#top_box"><button class="xi-angle-up arrow_up" style="display: inline-block;"></button></a>
-			</div>
-		
-		</section>
+			<section class="bottom_box">
+				<script type="text/javascript">
+				 Kakao.init('b59f3bc702a4a8943170ad729a2e3507');
+				  function sendLink() {
+					Kakao.Link.sendDefault({
+					  objectType: 'feed',
+					  content: {
+						title: '김창원♥노영지 결혼식에 초대합니다.',
+						description: '2월 24일 (토) 오후 1시 30분\n드메르웨딩홀 / 1층 르씨엘홀',
+						imageUrl:
+						  'https://file.salondeletter.com/202311/04/4977/e3d48691.jpg',
+						link: {
+						  mobileWebUrl: 'https://salondeletter.com/w/um5wof476m',
+						  webUrl: 'https://salondeletter.com/w/um5wof476m',
+						},
+					  },
+					  buttons: [
+						{
+						  title: '청첩장 보기',
+						  link: {
+							mobileWebUrl: 'https://salondeletter.com/w/um5wof476m',
+							webUrl: 'https://salondeletter.com/w/um5wof476m',
+						  },
+						},
+						{
+						  title: '위치 보기',
+						  link: {
+							mobileWebUrl: 'https://kcw135.github.io/240224/',
+							webUrl: 'https://kcw135.github.io/240224/',
+						  },
+						},
+					  ],
+					})
+				  }
+				</script>
+				<!-- 이미지/버튼 클릭 시 주소는 Kakao Developers의 애플리케이션 > 플랫폼 > Web에 넣어야 클릭했을때 성공적으로 표시됩니다 -->
+			
+				<!-- 네비게이션-공유하기, 맨위로 부분 -->
+				<div class="quick_btn preview_resize" id="quick_btn">
+						<a id="kakao-link-btn" href="javascript:sendLink()"><button class="xi-share-alt share" style="display: inline-block;"></button></a>
+						<a href="#top_box"><button class="xi-angle-up arrow_up" style="display: inline-block;"></button></a>
+				</div>
+			
+			</section>
+		</div>
 	</body>
 </html>
