@@ -137,13 +137,14 @@
 				display: inline-block;
 				top: 20px;
 				right: 21px;
-				padding: 10px;
+				padding: 10px 0;
 				font-size: var(--font-large);
 				background: rgba(153, 153, 153, 0.25);
 				border-radius: 50%;
 				color: rgba(255, 255, 255, 0.8);
 				border: none;
 				pointer-events: all;
+				width: 44px;
 			}
 			
 			.arrow_mail {
@@ -151,13 +152,14 @@
 				display: inline-block;
 				top: 20px;
 				left: 21px;
-				padding: 10px;
+				padding: 10px 0;
 				font-size: var(--font-large);
 				background: rgba(153, 153, 153, 0.25);
 				border-radius: 50%;
 				color: rgba(255, 255, 255, 0.8);
 				border: none;
 				pointer-events: all;
+				width: 44px;
 			}
 								
 			.share_str {
@@ -181,19 +183,35 @@
 				pointer-events: all;
 				
 			}
-				
+								
+			.address_str {
+				font-size: var(--font-small);
+			}
+			
  			.ui-link {
-				display: inline-block;
+				display: fixed;
 				background-color: #f44336;
+				border-radius: 4px;
+				margin: 2px;
 				width: 80px;
 				height: 80px;
 			}
 			
-			.more_view1 a {
-				display: inline-block;
-				padding: 0px 0px;
-				margin: 10px 0;
+			.more_view1 {
+				display: flex;
+				margin-top: 20px;
+				margin-bottom: 2px;
+				align-items: center;
+				justify-content: center;
 			} 
+						
+			.tmap {
+			 	width : 30%;
+				height: 30%;
+			 	position: absolute; 
+			 	right : 33%;
+			 	top : -15%;
+			}
 		</style>
 		
 		<!-- <link rel="stylesheet" href="styles/main.css"> -->
@@ -233,19 +251,53 @@
 				    </a>
 				</div>
 				<div class="locate_hall">1층 / 르씨엘홀</div>
-				<div class="locate_address">광주 광산구 임방울대로 565</div>
-				<div class="locate_address">(광주 광산구 도천동 147-22)</div>
-
+				
+				<div class="locate_address" style="text-align: right;">
+					<div id="address1" style="text-align: right; margin-right: 60px;" onclick="copyToClopboard('광주 광산구 임방울대로 549')">광주 광산구 임방울대로 549
+						<i class="address_str fa fa-copy" aria-hidden="true" style="margin-left: 10px;">
+							<span class="address_str">복사</span>
+						</i>
+					</div>
+					
+				
+					<div id="address2" style="text-align: right; margin-right: 60px;" onclick="copyToClopboard('도천동 147-27')">(도천동 147-27)
+						<i class="address_str fa fa-copy" aria-hidden="true" style="margin-left: 50px;">
+							<span class="address_str">복사</span>
+						</i>
+					</div>
+				</div>
+				
+				<script>
+					function copyToClopboard(text) {
+						const input = document.createElement('input');
+						input.style.position = 'fixed';
+						input.style.opacity = 0;
+						input.value = text;
+						document.body.appendChild(input);
+						input.select();
+						document.execCommand('copy');
+						document.body.removeChild(input);
+						alert('주소가 복사 되었습니다.\n' + text);
+					}
+				</script>
+				
 			</section>
 			
 			<section class="map_box">
-			
-				<div class="more_view">
-					<a href="https://apis.openapi.sk.com/tmap/app/routes?appKey=0jHii10YHo7TsAKVmODCs2c9tTvHJopo3lPNCwZV&name=드메르웨딩홀&lon=126.821623&lat=35.207933"><span class="button" style="background: rgba(167, 72, 255, 0.8);">티맵</span></a>
-					<a href="https://place.map.kakao.com/m/60505718"><span class="button" style="background: rgba(255, 246, 18, 0.8);">카카오</span></a>
-					<a href="https://m.place.naver.com/place/580623277/home"><span class="button" style="background: rgba(98, 193, 91, 0.8);">네이버</span></a>
-					<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87"><span class="button" style="background: rgba(241, 95, 95, 0.8);">구글</span></a>
-				</div>
+				<div class="more_view1">
+					<a href="https://apis.openapi.sk.com/tmap/app/routes?appKey=0jHii10YHo7TsAKVmODCs2c9tTvHJopo3lPNCwZV&name=드메르웨딩홀&lon=126.821623&lat=35.207933">
+						<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_d4d680f97d25997d3673.jpg" width="80px">
+					</a>
+					<a href="https://place.map.kakao.com/m/60505718">
+						<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg" width="80px">
+					</a>
+					<a href="https://m.place.naver.com/place/580623277/home">
+						<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_7555c7b809b8b689a090.jpg" width="80px">
+					</a>
+					<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87">
+						<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg" width="80px">
+					</a>
+				</div> 	
 			
 				<div id="map" style="margin:0 auto;width:100%; height:300px;"></div>
 				<script>
@@ -284,21 +336,13 @@
 					infowindow.open(map, marker);
 				</script>
 				
-					
-					<div class="more_view1">
-						<a href="https://apis.openapi.sk.com/tmap/app/routes?appKey=0jHii10YHo7TsAKVmODCs2c9tTvHJopo3lPNCwZV&name=드메르웨딩홀&lon=126.821623&lat=35.207933">
-							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_d4d680f97d25997d3673.jpg" width="80px">
-						</a>
-						<a href="https://place.map.kakao.com/m/60505718">
-							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg" width="80px">
-						</a>
-						<a href="https://m.place.naver.com/place/580623277/home">
-							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_7555c7b809b8b689a090.jpg" width="80px">
-						</a>
-						<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87">
-							<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg" width="80px">
-						</a>
-					</div> 
+		
+				<div class="more_view">
+					<a href="https://apis.openapi.sk.com/tmap/app/routes?appKey=0jHii10YHo7TsAKVmODCs2c9tTvHJopo3lPNCwZV&name=드메르웨딩홀&lon=126.821623&lat=35.207933"><span class="button" style="background: rgba(167, 72, 255, 0.8);">티맵</span></a>
+					<a href="https://place.map.kakao.com/m/60505718"><span class="button" style="background: rgba(255, 246, 18, 0.8);">카카오</span></a>
+					<a href="https://m.place.naver.com/place/580623277/home"><span class="button" style="background: rgba(98, 193, 91, 0.8);">네이버</span></a>
+					<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87"><span class="button" style="background: rgba(241, 95, 95, 0.8);">구글</span></a>
+				</div>
 			
 			</section>
 			
