@@ -297,7 +297,27 @@
 					<a href="https://maps.app.goo.gl/pLFvuJDa6mHW76N87">
 						<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_b75ff63cddb7894e1c38.jpg" width="80px">
 					</a>
-				</div> 	
+					<a id="navi" href="#" onclick="navi();">
+						<img class="ui-link" src="https://deardeer.kr/uploads/template/images/2021/01/22//img_c050faa82af31b815d1f.jpg">
+					</a>
+				</div> 
+				
+				<script type='text/javascript'>
+					  //<![CDATA[
+						// 사용할 앱의 JavaScript 키를 설정해 주세요.
+						Kakao.init('b59f3bc702a4a8943170ad729a2e3507');
+						// 카카오 로그인 버튼을 생성합니다.
+						function navi(){
+							Kakao.Navi.share({
+							  name: '현대백화점 판교점',
+							  x: 127.11205203011632,
+							  y: 37.39279717586919,
+							  coordType: 'wgs84',
+							});
+						}
+					  //]]>
+				</script>
+				
 			
 				<div id="map" style="margin:0 auto;width:100%; height:300px;"></div>
 				<script>
