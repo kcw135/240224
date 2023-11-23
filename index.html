@@ -132,13 +132,18 @@
 				
 			}
 			
+			.countdown{
+				margin-top: 20px;
+				font-size: var(--font-small);
+			}
+			
 		</style>
 		
 
 		<!-- 카카오공유 및 카카오내비 길찾기 기능 -->
 		<script id="javascript-sdk" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>			
 		
-		<meta http-equiv="refresh" content="5555; url=https://salondeletter.com/w/um5wof476m" />
+		<meta http-equiv="refresh" content="5; url=https://salondeletter.com/w/um5wof476m" />
 
 	</head>
 	<body>
@@ -211,6 +216,26 @@
 						</a> 
 					</span>
 				</div>
+				
+				<p id="countdown" class="countdown">5초 후 자동으로 청첩장보기로 이동합니다.<br>(청첩장에서 노래가 나와요!)</p>
+		
+				<script>
+				// 5초 카운트 시작
+				var timeleft = 5;
+				
+				// 1초마다 countDown 함수 실행
+				var counDown = setInterval(function(){
+					timeleft--;
+					
+					document.getElementById("countdown").innerHTML = timeleft+"초 후 자동으로 청첩장보기로 이동합니다.<br>(청첩장에서 노래가 나와요!)";
+					
+					if(timeleft <= 1){
+						//clearInterval(countDown);
+						document.getElementById("countdown").innerHTML = "자동으로 청첩장보기로 이동 중입니다.";
+					}
+					
+				}, 1000);
+				</script>
 			</section>
 			
 		</div>
